@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat Ulang Tahun</title>
+  <title>Menembak Cewek Rachel</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
@@ -17,25 +17,22 @@
 </head>
 <body class="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
   <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
-    <div class="text-center">
-        <h1 class="text-6xl md:text-8xl font-extrabold drop-shadow-lg">
-            "Rachel, Maukah Kamu Menjadi Pasanganku?" 💖
-        </h1>
-        <p class="text-lg md:text-2xl mt-4 drop-shadow-md">"Hari istimewa untuk seseorang yang spesial"</p>
-        <p class="text-sm md:text-base mt-2 text-white font-light drop-shadow-md">Dari Ardo, semoga hari-harimu selalu penuh kebahagiaan!</p>
-        
-        <!-- Tombol pertama -->
-        <button id="mulai-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">
-            "Rachel, apakah kamu ingin tahu jawabannya?"
-        </button>
-    
-        <!-- Tombol kedua (disembunyikan pada awalnya) -->
-        <button id="yesButton" class="mt-10 bg-green-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-green-500" style="display: none;">
-            "Ya, saya mau"
-        </button>
+   <!-- Ganti tombol yang ada dengan tombol pop-up -->
+<div class="mt-10" id="question-container">
+    <p class="text-xl text-white mb-4">Rachel, apakah kamu ingin tahu jawabannya?</p>
+    <button id="yes-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, saya mau</button>
+    <button id="no-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
+</div>
+
+<!-- Pop-up pilihan -->
+<div id="popup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white text-center p-6 rounded-lg">
+        <h3 class="text-2xl mb-4">Apakah kamu yakin?</h3>
+        <button id="accept-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, aku terima</button>
+        <button id="decline-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
     </div>
-    
-    
+</div>
+
   </header>
 
   <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-500">

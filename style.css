@@ -145,3 +145,63 @@ button:hover {
         opacity: 0;
     }
 }
+
+/* Popup Modal */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Pop-up tersembunyi secara default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup .popup-content {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+#popup button {
+    background-color: #ff5252;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+#popup button:hover {
+    background-color: #ff3030;
+}
+
+/* Tampilkan Pop-up */
+#popup.show {
+    display: flex;
+}
+
+/* Button "Ya" dan "Tidak" */
+#yes-btn, #no-btn {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+#yes-btn:hover, #no-btn:hover {
+    background-color: #45a049;
+}

@@ -178,6 +178,26 @@ body {
   }
 
   /* Mengatur gaya untuk teks pesan */
+.message-container h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.message-container .from-text {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Mengubah warna nama Ardo */
+.name {
+    color: #FF6347; /* Warna merah muda atau warna lain sesuai preferensi */
+    font-weight: bold;
+}
+
+
+  /* Mengatur gaya untuk teks pesan */
 header h2 {
     font-size: 2.5rem; /* Sesuaikan ukuran font */
     margin-bottom: 20px;

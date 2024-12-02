@@ -13,38 +13,52 @@
       color: red;
       pointer-events: none;
     }
+    .popup-content {
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+
   <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
     <!-- Pesan Khusus untuk Rachel -->
-    <div class="absolute top-10 text-center w-full">
-      <h2 class="text-3xl font-bold text-white">"Rachel, Maukah Kamu Menjadi Pasanganku?" 💖</h2>
-      <p class="mt-4 text-xl text-white">"Hari istimewa untuk seseorang yang spesial"</p>
-      <p class="mt-4 text-lg text-white">Dari Ardo, semoga hari-harimu selalu penuh kebahagiaan!</p>
+    <div class="absolute top-10 text-center w-full px-6">
+      <h2 class="text-4xl font-bold text-white mb-4">"Rachel, Maukah Kamu Menjadi Pasanganku?" 💖</h2>
+      <p class="text-2xl text-white mb-6">"Hari istimewa untuk seseorang yang spesial"</p>
+      <p class="text-xl text-white font-semibold">Dari Ardo, semoga hari-harimu selalu penuh kebahagiaan!</p>
     </div>
 
-    <!-- Tombol Mulai (Untuk memutar musik dan animasi love) -->
+    <!-- Tombol Mulai -->
     <div class="absolute bottom-20 w-full text-center">
-      <button id="mulai-btn" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-400">
+      <button id="mulai-btn" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-400 shadow-lg">
         Mulai
       </button>
     </div>
 
     <!-- Tombol Pertanyaan -->
-    <div class="absolute bottom-10 w-full text-center">
+    <div class="absolute bottom-10 w-full text-center flex justify-center space-x-4">
       <p class="text-xl text-white mb-4">Rachel, apakah kamu ingin tahu jawabannya?</p>
-      <button id="yes-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, saya mau</button>
-      <button id="no-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
+      <button id="yes-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400 shadow-lg">Ya, saya mau</button>
+      <button id="no-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 shadow-lg">Maaf, saya tidak mau</button>
     </div>
   </header>
 
   <!-- Pop-up pilihan -->
   <div id="popup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white text-center p-6 rounded-lg">
+    <div class="bg-white text-center p-6 rounded-lg popup-content">
       <h3 class="text-2xl mb-4">Apakah kamu yakin?</h3>
-      <button id="accept-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, aku terima</button>
-      <button id="decline-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
+      <button id="accept-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400 shadow-lg">Ya, aku terima</button>
+      <button id="decline-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 shadow-lg ml-4">Maaf, saya tidak mau</button>
     </div>
   </div>
 

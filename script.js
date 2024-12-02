@@ -7,12 +7,8 @@ const surpriseButton = document.getElementById('surpriseButton');
 const surpriseSection = document.querySelector('.surprise-section');
 const fireworks = document.querySelector('.fireworks');
 
-surpriseButton.addEventListener('click', () => {
-    // Show Surprise
-    surpriseSection.style.display = 'block';
-    fireworks.style.display = 'block';
-    
-    // Play music if paused
+// Fungsi untuk memutar musik
+function playMusic() {
     if (music.paused) {
         music.play()
             .then(() => {
@@ -23,23 +19,23 @@ surpriseButton.addEventListener('click', () => {
                 alert('Klik tombol lagi jika musik tidak berputar!');
             });
     }
+}
+
+// Event listener untuk tombol surprise
+surpriseButton.addEventListener('click', () => {
+    // Tampilkan surprise
+    surpriseSection.style.display = 'block';
+    fireworks.style.display = 'block';
+    
+    // Putar musik jika belum diputar
+    playMusic();
 });
 
 // Tombol Mulai untuk memutar musik dan menampilkan efek hati
-document.getElementById('mulai-btn').addEventListener('click', function() {
+document.getElementById('mulai-btn').addEventListener('click', () => {
     createLoveEffect();  // Menampilkan animasi hati
-    const audio = document.getElementById('birthdayMusic');
-    audio.play()
-        .then(() => {
-            console.log('Musik berhasil diputar');
-        })
-        .catch((error) => {
-            console.error('Gagal memutar musik:', error);
-            alert('Klik tombol lagi jika musik tidak berputar!');
-        });
-
-    // Menampilkan efek emoticon love kecil-kecil
-    createLoveEffect();
+    playMusic();  // Memutar musik
+    createLoveEffect();  // Menampilkan efek emoticon love kecil-kecil
 });
 
 // Fungsi untuk membuat efek emoticon love kecil-kecil
@@ -74,7 +70,7 @@ const messages = [
     "Rachel, hatiku selalu untukmu. Bagaimana jika kita memberi kesempatan pada cinta?"
 ];
 
-// Tambahkan pesan ke kartu
+// Menambahkan pesan ke kartu
 cards.forEach((card, index) => {
     card.addEventListener('click', () => {
         card.innerHTML = `<h3 class="text-2xl font-bold text-white">${messages[index]}</h3>`;
@@ -83,18 +79,18 @@ cards.forEach((card, index) => {
 });
 
 // Fungsi untuk menampilkan pop-up
-document.getElementById('yes-btn').addEventListener('click', function() {
+document.getElementById('yes-btn').addEventListener('click', () => {
     // Tampilkan pop-up
     document.getElementById('popup').classList.remove('hidden');
 });
 
-document.getElementById('no-btn').addEventListener('click', function() {
+document.getElementById('no-btn').addEventListener('click', () => {
     // Tampilkan pop-up
     document.getElementById('popup').classList.remove('hidden');
 });
 
 // Tombol "Ya, aku terima" pada pop-up
-document.getElementById('accept-btn').addEventListener('click', function() {
+document.getElementById('accept-btn').addEventListener('click', () => {
     const message = "Halo Rachel, saya ingin tahu jawabannya!";
     const phoneNumber = "+6282277717787"; // Ganti dengan nomor WhatsApp Anda
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -107,7 +103,7 @@ document.getElementById('accept-btn').addEventListener('click', function() {
 });
 
 // Tombol "Maaf, saya tidak mau" pada pop-up
-document.getElementById('decline-btn').addEventListener('click', function() {
+document.getElementById('decline-btn').addEventListener('click', () => {
     alert("Baiklah Rachel, semoga kita bisa ngobrol lagi nanti!");
     
     // Sembunyikan pop-up setelah pilihan
@@ -115,9 +111,9 @@ document.getElementById('decline-btn').addEventListener('click', function() {
 });
 
 // Menyembunyikan tombol pertama dan menampilkan tombol kedua (akan muncul setelah klik "Mulai")
-document.getElementById('mulai-btn').addEventListener('click', function() {
+document.getElementById('mulai-btn').addEventListener('click', () => {
     // Menyembunyikan tombol pertama
-    this.style.display = 'none';
+    document.getElementById('mulai-btn').style.display = 'none';
     
     // Menampilkan tombol kedua
     const yesButton = document.getElementById('yes-btn');

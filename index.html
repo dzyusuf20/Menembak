@@ -13,9 +13,11 @@
       color: red;
       pointer-events: none;
     }
+
     .popup-content {
       animation: fadeIn 1s ease-out;
     }
+
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -26,12 +28,40 @@
         transform: translateY(0);
       }
     }
+
+    /* Penyesuaian Responsif untuk tampilan lebih kecil */
+    @media (max-width: 768px) {
+      header h2 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1.25rem;
+      }
+
+      .tarot-card {
+        padding: 6rem 0; /* Mengatur ukuran padding untuk kartu tarot */
+      }
+
+      .tarot-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .popup-content {
+        padding: 15px;
+      }
+
+      /* Mengatur ukuran footer untuk layar kecil */
+      footer {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
 
+  <!-- Header dengan background gambar -->
   <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
-    <!-- Pesan Khusus untuk Rachel -->
     <div class="absolute top-10 text-center w-full px-6">
       <h2 class="text-4xl font-bold text-white mb-4">"Rachel, Maukah Kamu Menjadi Pasanganku?" 💖</h2>
       <p class="text-2xl text-white mb-6">"Hari istimewa untuk seseorang yang spesial"</p>

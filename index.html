@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    .love {
+      position: absolute;
+      font-size: 2rem;
+      color: red;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+  <header class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1920x1080/?celebration,birthday');">
+    <div class="text-center">
+        <h1 class="text-6xl md:text-8xl font-extrabold drop-shadow-lg">
+            "Rachel, Maukah Kamu Menjadi Pasanganku?" 💖 </h1>          
+      <p class="text-lg md:text-2xl mt-4 drop-shadow-md">"Hari istimewa untuk seseorang yang spesial"</p>
+      <p class="text-sm md:text-base mt-2 text-white font-light drop-shadow-md">Dari Ardo, semoga hari-harimu selalu penuh kebahagiaan!</p>
+      <button id="mulai-btn" class="mt-10 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">Klik untuk Mulai</button>
+    </div>
+  </header>
+
+  <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-500">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-white mb-6">Kartu Tarot Kamu</h2>
+      <p class="text-lg text-white">Klik untuk membuka kartu dan temukan kata-kata spesial</p>
+    </div>
+
+    <!-- Grid Kartu Tarot -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 px-6">
+      <div id="card-1" class="tarot-card bg-red-500 hover:bg-red-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 1</h3>
+      </div>
+      <div id="card-2" class="tarot-card bg-blue-500 hover:bg-blue-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 2</h3>
+      </div>
+      <div id="card-3" class="tarot-card bg-green-500 hover:bg-green-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 3</h3>
+      </div>
+      <div id="card-4" class="tarot-card bg-purple-500 hover:bg-purple-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 4</h3>
+      </div>
+      <div id="card-5" class="tarot-card bg-orange-500 hover:bg-orange-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 5</h3>
+      </div>
+      <div id="card-6" class="tarot-card bg-yellow-500 hover:bg-yellow-400 text-center rounded-lg py-8 cursor-pointer transition duration-500 transform hover:scale-105">
+        <h3 class="text-2xl font-bold text-white">Kartu 6</h3>
+      </div>
+    </div>
+
+    <audio id="birthdayMusic" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" preload="auto"></audio>
+  </section>
+
+  <footer class="text-center py-8 bg-gray-800 text-white">
+    <p>© 2024 Ulang Tahun Spesial, By Ardo Purba</p>
+  </footer>
+
+  <script>
+    // Fungsi untuk membuat dan menganimasikan emot love
+    function createLoveAnimation(x, y) {
+      const love = document.createElement('div');
+      love.className = 'love';
+      love.textContent = '❤️';
+      love.style.left = `${x}px`;
+      love.style.top = `${y}px`;
+      document.body.appendChild(love);
+
+      // Animasi dengan GSAP
+      gsap.to(love, {
+        y: -150,
+        opacity: 0,
+        duration: 2,
+        ease: 'power1.out',
+        onComplete: () => love.remove(),
+      });
+    }
+
+    // Tombol Mulai untuk memutar musik dan menampilkan animasi love
+    document.getElementById('mulai-btn').addEventListener('click', function (event) {
+      const audio = document.getElementById('birthdayMusic');
+      audio.play()
+        .then(() => {
+          console.log('Musik berhasil diputar');
+        })
+        .catch((error) => {
+          console.error('Gagal memutar musik:', error);
+          alert('Klik tombol lagi jika musik tidak berputar!');
+        });
+
+      // Buat animasi love
+      const rect = event.target.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top;
+      createLoveAnimation(x, y);
+    });
+
+    // Kartu Tarot
+    const cards = document.querySelectorAll('.tarot-card');
+    const messages = [
+      "Semangat dan jangan pernah menyerah!",
+      "Cinta akan datang di waktu yang tepat!",
+      "Kesuksesan menantimu, tetap berusaha!",
+      "Aku masih menyayangimu, maukah kita mencoba lagi?",
+      "Mungkin ini saatnya kita kembali menjadi kita.",
+      "Aku menghargai setiap momen kita, semoga selalu ada kebahagiaan untukmu.",
+    ];
+
+    // Tambahkan pesan ke kartu
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        card.innerHTML = `<h3 class="text-2xl font-bold text-white">${messages[index]}</h3>`;
+        gsap.from(card, { duration: 1, scale: 0, ease: 'bounce' });
+      });
+    });
+  </script>
+</body>
+</html>

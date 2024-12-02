@@ -66,13 +66,14 @@ function createLoveEffect() {
 // Kartu Tarot
 const cards = document.querySelectorAll('.tarot-card');
 const messages = [
-    "Semangat dan jangan pernah menyerah!",
-    "Cinta akan datang di waktu yang tepat!",
-    "Kesuksesan menantimu, tetap berusaha!",
-    "Aku masih menyayangimu, maukah kita mencoba lagi?",
-    "Mungkin ini saatnya kita kembali menjadi kita.",
-    "Hatiku selalu untukmu, balikan yuk?"
+    "Rachel, aku sudah lama ingin mengatakan ini... maukah kamu menjadi pacarku?",
+    "Cinta datang di waktu yang tepat, mungkin sekarang saatnya?",
+    "Rachel, aku harap kita bisa bersama, apakah kamu merasa hal yang sama?",
+    "Aku sudah jatuh cinta padamu, Rachel. Bagaimana denganmu?",
+    "Mungkin kita bisa mencoba hal baru bersama, Rachel.",
+    "Rachel, hatiku selalu untukmu. Bagaimana jika kita memberi kesempatan pada cinta?"
 ];
+
 
 // Tambahkan pesan ke kartu
 cards.forEach((card, index) => {
@@ -80,4 +81,18 @@ cards.forEach((card, index) => {
         card.innerHTML = `<h3 class="text-2xl font-bold text-white">${messages[index]}</h3>`;
         gsap.from(card, { duration: 1, scale: 0, ease: 'bounce' });
     });
+});
+// Tombol "Ya, saya mau"
+document.getElementById('yes-btn').addEventListener('click', function() {
+    const message = "Halo Rachel, saya ingin tahu jawabannya!";
+    const phoneNumber = "+6282277717787";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Mengarahkan pengguna ke WhatsApp
+    window.open(whatsappURL, "_blank");
+});
+
+// Tombol "Maaf, saya tidak mau"
+document.getElementById('no-btn').addEventListener('click', function() {
+    alert("Baiklah Rachel, semoga kita bisa ngobrol lagi nanti!");
 });

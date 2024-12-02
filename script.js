@@ -1,8 +1,8 @@
 // Play music
-const music = document.getElementById('birthdayMusic');
+const music = document.getElementById('birthdayMusic'); // Pastikan ID audio benar
 music.volume = 0.5;
 
-// Surprise Button
+// Cek apakah musik sudah diputar
 const surpriseButton = document.getElementById('surpriseButton');
 const surpriseSection = document.querySelector('.surprise-section');
 const fireworks = document.querySelector('.fireworks');
@@ -24,6 +24,7 @@ surpriseButton.addEventListener('click', () => {
             });
     }
 });
+
 
 // Tombol Mulai untuk memutar musik dan menampilkan efek hati
 document.getElementById('mulai-btn').addEventListener('click', function() {
@@ -82,6 +83,19 @@ cards.forEach((card, index) => {
         gsap.from(card, { duration: 1, scale: 0, ease: 'bounce' });
     });
 });
+document.getElementById('mulai-btn').addEventListener('click', function() {
+    // Menyembunyikan tombol pertama
+    this.style.display = 'none';
+    
+    // Menampilkan tombol kedua
+    const yesButton = document.getElementById('yesButton');
+    yesButton.style.display = 'inline-block';
+    
+    // Tambahkan efek atau perubahan lainnya jika diinginkan
+    alert("Tombol kedua sekarang tersedia!");
+});
+
+
 // Tombol "Ya, saya mau"
 document.getElementById('yes-btn').addEventListener('click', function() {
     const message = "Halo Rachel, saya ingin tahu jawabannya!";

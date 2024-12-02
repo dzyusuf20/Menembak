@@ -25,25 +25,28 @@
     </div>
 
     <!-- Tombol Mulai (Untuk memutar musik dan animasi love) -->
-    <button id="mulai-btn" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-400 mt-16">
-      Mulai
-    </button>
+    <div class="absolute bottom-20 w-full text-center">
+      <button id="mulai-btn" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-400">
+        Mulai
+      </button>
+    </div>
 
-    <div class="mt-10" id="question-container">
+    <!-- Tombol Pertanyaan -->
+    <div class="absolute bottom-10 w-full text-center">
       <p class="text-xl text-white mb-4">Rachel, apakah kamu ingin tahu jawabannya?</p>
       <button id="yes-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, saya mau</button>
       <button id="no-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
     </div>
-
-    <!-- Pop-up pilihan -->
-    <div id="popup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-      <div class="bg-white text-center p-6 rounded-lg">
-        <h3 class="text-2xl mb-4">Apakah kamu yakin?</h3>
-        <button id="accept-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, aku terima</button>
-        <button id="decline-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
-      </div>
-    </div>
   </header>
+
+  <!-- Pop-up pilihan -->
+  <div id="popup" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white text-center p-6 rounded-lg">
+      <h3 class="text-2xl mb-4">Apakah kamu yakin?</h3>
+      <button id="accept-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400">Ya, aku terima</button>
+      <button id="decline-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-400 ml-4">Maaf, saya tidak mau</button>
+    </div>
+  </div>
 
   <section class="py-16 bg-gradient-to-r from-pink-500 to-purple-500">
     <div class="text-center mb-12">
@@ -122,12 +125,12 @@
     // Kartu Tarot
     const cards = document.querySelectorAll('.tarot-card');
     const messages = [
-    "Rachel, aku sudah lama ingin mengatakan ini... maukah kamu menjadi pacarku?",
-    "Cinta datang di waktu yang tepat, mungkin sekarang saatnya?",
-    "Rachel, aku harap kita bisa bersama, apakah kamu merasa hal yang sama?",
-    "Aku sudah jatuh cinta padamu, Rachel. Bagaimana denganmu?",
-    "Mungkin kita bisa mencoba hal baru bersama, Rachel.",
-    "Rachel, hatiku selalu untukmu. Bagaimana jika kita memberi kesempatan pada cinta?"
+      "Rachel, aku sudah lama ingin mengatakan ini... maukah kamu menjadi pacarku?",
+      "Cinta datang di waktu yang tepat, mungkin sekarang saatnya?",
+      "Rachel, aku harap kita bisa bersama, apakah kamu merasa hal yang sama?",
+      "Aku sudah jatuh cinta padamu, Rachel. Bagaimana denganmu?",
+      "Mungkin kita bisa mencoba hal baru bersama, Rachel.",
+      "Rachel, hatiku selalu untukmu. Bagaimana jika kita memberi kesempatan pada cinta?"
     ];
 
     // Tambahkan pesan ke kartu
